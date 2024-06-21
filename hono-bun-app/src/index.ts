@@ -1,9 +1,15 @@
-import { Hono } from 'hono'
+import { createServer } from "./server";
 
-const app = new Hono()
+const server = createServer();
 
-app.get('/', (c) => {
-  return c.text('Hello Hono!')
-})
+server.get("/", (c) => {
+	return c.text("Hello Hono!");
+});
 
-export default app
+server.get("/health", (c) =>
+	c.json({
+		ok: true,
+	}),
+);
+
+export default server;

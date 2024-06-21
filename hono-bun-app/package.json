@@ -1,12 +1,14 @@
 {
   "name": "hono-bun-app",
   "scripts": {
-    "dev": "bun run --hot src/index.ts"
+    "dev": "NODE_ENV=dev bun run --hot src/index.ts",
+    "build": "NODE_ENV=production bun build ./src/index.ts --compile --minify --sourcemap --outfile hono-bun-app"
   },
   "dependencies": {
     "hono": "^4.4.7"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.8.2",
     "@types/bun": "latest"
   }
 }
